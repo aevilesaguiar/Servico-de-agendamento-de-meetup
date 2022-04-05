@@ -1,6 +1,16 @@
-## Serviço de Agendamento de Meetup
+# Serviço de Agendamento de Meetup
 
+## Projeto
 
+Pequeno microserviço de cadastro de Meetup
+
+## Tecnologias Usadas
+
+- Java 11
+- Maven
+- Spring
+- JPA
+- TDD Test Driven Development
 
 ## DTO
 
@@ -43,4 +53,4 @@ desenvolvimento real do aplicativo. Portanto, o TDD às vezes também é chamado
 - [Desenvolvimento Orientado a Testes (TDD) ](- [@ActiveProfiles()](https://www.guru99.com/test-driven-development.html)
 - [@MockBean Annotation](https://www.baeldung.com/java-spring-mockito-mock-mockbean#spring-boots-mockbean-annotation)
 - [Biblioteca Assertions](https://joel-costigliola.github.io/assertj/)
-- 
+- [Mockito](https://site.mockito.org/)
