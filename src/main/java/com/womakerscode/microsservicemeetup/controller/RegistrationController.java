@@ -1,9 +1,8 @@
 package com.womakerscode.microsservicemeetup.controller;
 
-import com.womakerscode.microsservicemeetup.model.Registration;
-import com.womakerscode.microsservicemeetup.model.entity.RegistrationDto;
+import com.womakerscode.microsservicemeetup.model.entity.Registration;
+import com.womakerscode.microsservicemeetup.model.RegistrationDto;
 import com.womakerscode.microsservicemeetup.service.RegistrationService;
-import org.springframework.web.bind.annotation.RestController;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,5 +51,28 @@ public class RegistrationController {
                 .map(registration -> modelMapper.map(registration, RegistrationDto.class))
                 .orElseThrow( ()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteByRegistrationId(@PathVariable Integer id) {
+        Registration registration = registrationService.getRegistrationById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        registrationService.delete(registration);
+    }
+
+
+    @PutMapping("{id}")
+    public RegistrationDto update(@PathVariable Integer id, RegistrationDto registrationDTO) {
+
+        return registrationService.getRegistrationById(id).map(registration -> {
+            registration.setName(registrationDTO.getName());
+            registration.setDateOfRegistration(String.valueOf(registrationDTO.getDateOfRegistration()));
+            registration = registrationService.update(registration);
+
+            return modelMapper.map(registration, RegistrationDto.class);
+        }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+    }
+
+    // implementacao do metodo find
 }
 

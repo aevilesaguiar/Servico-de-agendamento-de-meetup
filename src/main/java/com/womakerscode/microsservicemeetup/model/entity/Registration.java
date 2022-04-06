@@ -1,20 +1,18 @@
-package com.womakerscode.microsservicemeetup.model;
+package com.womakerscode.microsservicemeetup.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder //suprime a geração de método construtor
+@Entity
 public class Registration {
 
     @Id
@@ -32,7 +30,7 @@ public class Registration {
     private String password;
 
     @Column(name = "date_of_registration")
-    private LocalDate dateOfRegistration;
+    private String dateOfRegistration;
 
     @Column //quando não incluimos o nome, o nome fica o mesmo do id
     private String registration;

@@ -16,15 +16,14 @@ public class ApiErrors {
         bindingResult.getAllErrors().forEach(error -> this.errors.add(error.getDefaultMessage()) );
     }
 
+
     public ApiErrors(BussinessException e) {
         this.errors = Arrays.asList(e.getMessage());
     }
 
-
     public ApiErrors(ResponseStatusException e) {
         this.errors = Arrays.asList(e.getReason());
     }
-
 
     public List<String> getErrors() {
         return errors;

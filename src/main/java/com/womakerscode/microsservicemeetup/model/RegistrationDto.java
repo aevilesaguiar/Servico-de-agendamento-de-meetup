@@ -1,4 +1,4 @@
-package com.womakerscode.microsservicemeetup.model.entity;
+package com.womakerscode.microsservicemeetup.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

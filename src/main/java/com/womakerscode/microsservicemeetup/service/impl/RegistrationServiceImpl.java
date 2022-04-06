@@ -1,14 +1,10 @@
 package com.womakerscode.microsservicemeetup.service.impl;
 
 import com.womakerscode.microsservicemeetup.exceptional.BussinessException;
-import com.womakerscode.microsservicemeetup.model.Registration;
+import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import com.womakerscode.microsservicemeetup.repository.RegistrationRepository;
 import com.womakerscode.microsservicemeetup.service.RegistrationService;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -56,7 +52,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     }
 
     @Override
-    public Page<Registration> find(Registration filter, PageRequest pageRequest) {
+    public Page<Registration> find(Registration filter, Pageable pageRequest) {
         Example<Registration> example = Example.of(filter,
                 ExampleMatcher
                         .matching()

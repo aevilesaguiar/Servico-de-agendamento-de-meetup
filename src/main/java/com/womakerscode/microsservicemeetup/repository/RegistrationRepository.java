@@ -1,6 +1,6 @@
 package com.womakerscode.microsservicemeetup.repository;
 
-import com.womakerscode.microsservicemeetup.model.Registration;
+import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

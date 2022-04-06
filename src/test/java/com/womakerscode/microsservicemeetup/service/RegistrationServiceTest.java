@@ -2,7 +2,7 @@ package com.womakerscode.microsservicemeetup.service;
 
 
 import com.womakerscode.microsservicemeetup.exceptional.BussinessException;
-import com.womakerscode.microsservicemeetup.model.Registration;
+import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import com.womakerscode.microsservicemeetup.repository.RegistrationRepository;
 import com.womakerscode.microsservicemeetup.service.impl.RegistrationServiceImpl;
 import org.assertj.core.api.Assertions;
@@ -197,7 +197,7 @@ public class RegistrationServiceTest {
         return Registration.builder()
                 .id(101)
                 .name("Aeviles Aguiar")
-                .dateOfRegistration(LocalDate.parse("01/04/2022"))
+                .dateOfRegistration("10/10/2021")
                 .registration("001")
                 .build();
     }
