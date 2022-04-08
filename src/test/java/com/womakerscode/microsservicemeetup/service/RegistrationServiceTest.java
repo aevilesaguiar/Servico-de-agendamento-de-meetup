@@ -19,13 +19,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
@@ -57,7 +56,7 @@ public class RegistrationServiceTest {
 
         // assert
         assertThat(savedRegistration.getId()).isEqualTo(101);
-        assertThat(savedRegistration.getName()).isEqualTo("Aeviles Aguiar");
+        assertThat(savedRegistration.getName()).isEqualTo("Ana Neri");
         assertThat(savedRegistration.getDateOfRegistration()).isEqualTo("01/04/2022");
         assertThat(savedRegistration.getRegistration()).isEqualTo("001");
 
@@ -197,7 +196,7 @@ public class RegistrationServiceTest {
         return Registration.builder()
                 .id(101)
                 .name("Aeviles Aguiar")
-                .dateOfRegistration("10/10/2021")
+                .dateOfRegistration("01/04/2022")
                 .registration("001")
                 .build();
     }

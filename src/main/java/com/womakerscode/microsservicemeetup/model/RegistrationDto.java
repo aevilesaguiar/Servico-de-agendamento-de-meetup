@@ -5,14 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
+
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder //suprime a geração de método construtor
+@Builder
 public class RegistrationDto {
 
     private Integer id;//nesse atributo não é necessário incluir @NotEmpty por que ele é gerado automaticamente
@@ -21,14 +21,10 @@ public class RegistrationDto {
     private String name;
 
     @NotEmpty
-    private String email;
-
-    @NotEmpty
-    private LocalDate dateOfRegistration;
+    private String dateOfRegistration;
 
     @NotEmpty
     private String registration;
-
 
 
 }

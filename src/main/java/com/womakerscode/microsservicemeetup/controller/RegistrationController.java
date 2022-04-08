@@ -1,16 +1,13 @@
 package com.womakerscode.microsservicemeetup.controller;
 
-import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import com.womakerscode.microsservicemeetup.model.RegistrationDto;
+import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import com.womakerscode.microsservicemeetup.service.RegistrationService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -74,5 +71,17 @@ public class RegistrationController {
     }
 
     // implementacao do metodo find
+
+    public Page<RegistrationDto> find(RegistrationDto dto, Pageable pageRequest ){
+        Registration filter = modelMapper.map(dto,Registration.class);
+        Page<Registration> result= registrationService.find(filter, pageRequest);
+
+        List<RegistrationDto> list = result.getContent()
+                .stream()
+                .map(entity->modelMapper.map(entity,RegistrationDto.class))
+                .collect(Collectors.toList());
+
+        return new PageImpl<RegistrationDto>(list, pageRequest, result.getTotalElements());
+    }
 }
 

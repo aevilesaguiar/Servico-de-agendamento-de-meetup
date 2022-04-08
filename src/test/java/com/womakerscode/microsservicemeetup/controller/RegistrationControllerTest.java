@@ -1,6 +1,6 @@
 package com.womakerscode.microsservicemeetup.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.womakerscode.microsservicemeetup.exceptional.BussinessException;
 import com.womakerscode.microsservicemeetup.model.RegistrationDto;
 import com.womakerscode.microsservicemeetup.model.entity.Registration;
@@ -25,14 +25,16 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
+
+
 import java.util.Arrays;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.anyInt;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
@@ -49,14 +51,13 @@ public class RegistrationControllerTest {
     RegistrationService registrationService;
 
     @Test
-    @DisplayName("Should creare a registration with success")
+    @DisplayName("Should create a registration with success")
     public void createRegistrationTest() throws Exception {
 
         // cenario
         RegistrationDto registrationDTOBuilder = createNewRegistration();
         Registration savedRegistration  = Registration.builder().id(101)
-                .name("Aeviles Aguiar").dateOfRegistration("10/10/2021").registration("001").build();
-
+                .name("Ana Neri").dateOfRegistration("10/10/2021").registration("001").build();
 
 
         // execucao
@@ -279,7 +280,7 @@ public class RegistrationControllerTest {
 
 
         MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders
-                .put(REGISTRATION_API.concat(queryString))
+                .get(REGISTRATION_API.concat(queryString))
                 .accept(MediaType.APPLICATION_JSON);
 
         mockMvc
@@ -291,11 +292,6 @@ public class RegistrationControllerTest {
                 .andExpect(jsonPath("pageable.pageNumber"). value(0));
 
     }
-
-
-
-
-
 
 
 
