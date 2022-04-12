@@ -1,8 +1,9 @@
 package com.womakerscode.microsservicemeetup.controller;
 
 
+import com.womakerscode.microsservicemeetup.controller.dto.RegistrationDto;
+import com.womakerscode.microsservicemeetup.controller.resource.RegistrationController;
 import com.womakerscode.microsservicemeetup.exceptional.BussinessException;
-import com.womakerscode.microsservicemeetup.model.RegistrationDto;
 import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import com.womakerscode.microsservicemeetup.service.RegistrationService;
 import org.hamcrest.Matchers;
@@ -57,7 +58,7 @@ public class RegistrationControllerTest {
         // cenario
         RegistrationDto registrationDTOBuilder = createNewRegistration();
         Registration savedRegistration  = Registration.builder().id(101)
-                .name("Ana Neri").dateOfRegistration("10/10/2021").registration("001").build();
+                .name("Aeviles Aguiar").dateOfRegistration("10/10/2021").registration("001").build();
 
 
         // execucao
@@ -218,7 +219,7 @@ public class RegistrationControllerTest {
         Registration updatedRegistration =
                 Registration.builder()
                         .id(id)
-                        .name("Ana Neri")
+                        .name("Aeviles Aguiar")
                         .dateOfRegistration("10/10/2021")
                         .registration("323")
                         .build();
@@ -297,6 +298,6 @@ public class RegistrationControllerTest {
 
 
     private RegistrationDto createNewRegistration() {
-        return  RegistrationDto.builder().id(101).name("Ana Neri").dateOfRegistration("10/10/2021").registration("001").build();
+        return  RegistrationDto.builder().id(101).name("Aeviles Aguiar").dateOfRegistration("10/10/2021").registration("001").build();
     }
 }

@@ -54,3 +54,4 @@ desenvolvimento real do aplicativo. Portanto, o TDD às vezes também é chamado
 - [@MockBean Annotation](https://www.baeldung.com/java-spring-mockito-mock-mockbean#spring-boots-mockbean-annotation)
 - [Biblioteca Assertions](https://joel-costigliola.github.io/assertj/)
 - [Mockito](https://site.mockito.org/)
+- [Swagger](https://swagger.io/docs/specification/about/)

@@ -1,4 +1,4 @@
-package com.womakerscode.microsservicemeetup.model;
+package com.womakerscode.microsservicemeetup.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,15 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class RegistrationDto {
 
-    private Integer id;//nesse atributo não é necessário incluir @NotEmpty por que ele é gerado automaticamente
+    private Integer id;
 
     @NotEmpty
     private String name;
@@ -25,6 +23,5 @@ public class RegistrationDto {
 
     @NotEmpty
     private String registration;
-
 
 }

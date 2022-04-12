@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,18 +24,14 @@ public class Registration {
     @Column(name = "person_name")
     private String name;
 
-    @Column(name = "person_email")
-    private String email;
-
-    @Column(name = "person_password")
-    private String password;
-
     @Column(name = "date_of_registration")
     private String dateOfRegistration;
 
-    @Column //quando não incluimos o nome, o nome fica o mesmo do id
+    @Column
     private String registration;
 
+    @OneToMany(mappedBy = "registration")
+    private List<Meetup> meetups;
 
 
 }
