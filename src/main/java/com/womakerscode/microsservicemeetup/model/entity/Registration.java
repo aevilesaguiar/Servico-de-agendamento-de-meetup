@@ -18,7 +18,7 @@ public class Registration {
 
     @Id
     @Column(name = "registration_id")//geração da chave primáriA
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//a qual deve ser declarada quando a geração do valor da chave-primária é de responsabilidade do banco de dados.
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//a qual deve ser declarada quando a geração do valor da primary key é de responsabilidade do banco de dados.
     private Integer id;
 
     @Column(name = "person_name")
