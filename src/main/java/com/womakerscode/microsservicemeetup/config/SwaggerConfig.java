@@ -1,10 +1,8 @@
 package com.womakerscode.microsservicemeetup.config;
 
 
-import com.google.common.base.Predicate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -24,8 +22,8 @@ public class SwaggerConfig {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis((Predicate<RequestHandler>) basePackage("com.bootcamp.microservicemeetup.controller.resource"))
-                .paths((Predicate<String>) PathSelectors.any())
+                .apis(basePackage("com.womakerscode.microsservicemeetup.controller.resource"))
+                .paths( PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
     }

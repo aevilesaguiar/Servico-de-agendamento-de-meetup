@@ -7,12 +7,12 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class ServicoDeAgendamentoDeMeetupApplication {
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServicoDeAgendamentoDeMeetupApplication.class, args);
 	}
-	//adicionar essa linha parou de erro
-	@Bean
-	public ModelMapper modelMapper(){
-		return new ModelMapper();}
 }

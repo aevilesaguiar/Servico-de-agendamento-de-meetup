@@ -39,11 +39,12 @@ public class MeetupServiceImpl implements MeetupService {
 
     @Override
     public Page<Meetup> find(MeetupFilterDto filterDTO, Pageable pageable) {
-        return repository.findByRegistrationOnMeetup( filterDTO.getRegistration(), filterDTO.getEvent(), (java.awt.print.Pageable) pageable);
+        return repository.findByRegistrationOnMeetup( filterDTO.getRegistration(), filterDTO.getEvent(), pageable );
     }
+
 
     @Override
     public Page<Meetup> getRegistrationsByMeetup(Registration registration, Pageable pageable) {
-        return repository.findByRegistration(registration, (java.awt.print.Pageable) pageable);
+        return repository.findByRegistration(registration, pageable);
     }
 }

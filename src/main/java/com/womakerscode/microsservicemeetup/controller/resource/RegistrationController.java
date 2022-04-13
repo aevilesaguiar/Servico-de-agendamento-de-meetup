@@ -42,12 +42,12 @@ public class RegistrationController {
 
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
-    public RegistrationDto get (@PathVariable Integer id) {
+    public RegistrationDto get(@PathVariable Integer id) {
 
         return registrationService
                 .getRegistrationById(id)
                 .map(registration -> modelMapper.map(registration, RegistrationDto.class))
-                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @DeleteMapping("{id}")

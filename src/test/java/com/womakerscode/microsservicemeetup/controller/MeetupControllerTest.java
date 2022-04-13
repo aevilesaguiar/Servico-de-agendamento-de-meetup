@@ -1,6 +1,8 @@
 package com.womakerscode.microsservicemeetup.controller;
 
+
 import com.womakerscode.microsservicemeetup.controller.dto.MeetupDto;
+import com.womakerscode.microsservicemeetup.controller.resource.MeetupController;
 import com.womakerscode.microsservicemeetup.exceptional.BussinessException;
 import com.womakerscode.microsservicemeetup.model.entity.Meetup;
 import com.womakerscode.microsservicemeetup.model.entity.Registration;
@@ -8,11 +10,16 @@ import com.womakerscode.microsservicemeetup.service.MeetupService;
 import com.womakerscode.microsservicemeetup.service.RegistrationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -23,7 +30,12 @@ import java.util.Optional;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class MeetupRegistrationTest {
+@ExtendWith(SpringExtension.class)
+@ActiveProfiles("test")
+@WebMvcTest(controllers = {MeetupController.class})
+@AutoConfigureMockMvc
+public class MeetupControllerTest {
+
     static final String MEETUP_API = "/api/meetups";
 
     @Autowired
@@ -56,15 +68,12 @@ public class MeetupRegistrationTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json);
-
         // Aqui o que retorna é o id do registro no meetup
         mockMvc.perform(request)
                 .andExpect(status().isCreated())
                 .andExpect(content().string("11"));
 
     }
-
-
     @Test
     @DisplayName("Should return error when try to register an a meetup nonexistent")
     public void invalidRegistrationCreateMeetupTest() throws Exception {
@@ -87,7 +96,6 @@ public class MeetupRegistrationTest {
     }
 
 
-
     @Test
     @DisplayName("Should return error when try to register a registration already register on a meetup")
     public void  meetupRegistrationErrorOnCreateMeetupTest() throws Exception {
@@ -96,7 +104,7 @@ public class MeetupRegistrationTest {
         String json = new ObjectMapper().writeValueAsString(dto);
 
 
-        Registration registration = Registration.builder().id(11).name("Aeviles Aguiar").registration("123").build();
+        Registration registration = Registration.builder().id(11).name("Ana Neri").registration("123").build();
         BDDMockito.given(registrationService.getRegistrationByRegistrationAttribute("123"))
                 .willReturn(Optional.of(registration));
 
@@ -112,7 +120,6 @@ public class MeetupRegistrationTest {
         mockMvc.perform(requestBuilder)
                 .andExpect(status().isBadRequest());
     }
-
 
 
 

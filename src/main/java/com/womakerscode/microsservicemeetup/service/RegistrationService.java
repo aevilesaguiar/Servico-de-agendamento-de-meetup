@@ -2,7 +2,6 @@ package com.womakerscode.microsservicemeetup.service;
 
 import com.womakerscode.microsservicemeetup.model.entity.Registration;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
