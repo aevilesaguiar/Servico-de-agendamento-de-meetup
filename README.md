@@ -11,6 +11,21 @@ Pequeno microserviço de cadastro de Meetup
 - Spring
 - JPA
 - TDD Test Driven Development
+- TDD Test Driven Development
+- Azure functions
+
+
+## TODO List
+
+- Implementação da classe se servico[ok]
+- Testes no service[ok]
+- Implementação da classe de controlle da web[ok]
+- Testes de contrato no controller[ok]
+- Testes unitarios no repository[ok]
+- Implementação do repository[ok]
+- Swagger[ok]
+- Testes locais via postman[ok]
+- Deploy no azure
 
 ## DTO
 
