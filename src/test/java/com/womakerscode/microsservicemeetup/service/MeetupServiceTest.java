@@ -53,6 +53,8 @@ class MeetupServiceTest {
     @Test
     @DisplayName("Should create a meetup")
     public void testSaveMeetup(){
+
+        // cenario
         Meetup meetup = createValidMeetup();
         Registration registration = createValidRegistration();
         Mockito.when(registrationRepository.existsByRegistration(Mockito.any())).thenReturn(true);

@@ -30,8 +30,6 @@ public class MeetupController {
     private final RegistrationService registrationService;
     private final ModelMapper modelMapper;
 
-
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     private Integer create(@RequestBody MeetupDto meetupDTO) {
