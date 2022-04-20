@@ -25,7 +25,7 @@ Pequeno microserviço de cadastro de Meetup
 - Implementação do repository[ok]
 - Swagger[ok]
 - Testes locais via postman[ok]
-- Deploy no azure
+- Deploy no azure[ok]
 
 ## DTO
 
@@ -58,7 +58,11 @@ desenvolvimento real do aplicativo. Portanto, o TDD às vezes também é chamado
 
 ## Chamada Swagger
 
-http://localhost:8080/swagger-ui/#/registration-controller
+http://localhost:8080/swagger-ui/#/
+
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
 
 
 ## Referencias
@@ -71,8 +75,9 @@ http://localhost:8080/swagger-ui/#/registration-controller
 - [@ExtendWith()](https://junit.org/junit5/docs/5.1.1/api/org/junit/jupiter/api/extension/ExtendWith.html)
 - [@ActiveProfiles()](https://www.baeldung.com/spring-profiles)
 - [Builder Partner](https://www.baeldung.com/spring-profiles)
-- [Desenvolvimento Orientado a Testes (TDD) ](- [@ActiveProfiles()](https://www.guru99.com/test-driven-development.html)
+- [Desenvolvimento Orientado a Testes (TDD) ](https://www.guru99.com/test-driven-development.html)
 - [@MockBean Annotation](https://www.baeldung.com/java-spring-mockito-mock-mockbean#spring-boots-mockbean-annotation)
 - [Biblioteca Assertions](https://joel-costigliola.github.io/assertj/)
 - [Mockito](https://site.mockito.org/)
 - [Swagger](https://swagger.io/docs/specification/about/)
+- [deploy Azure](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/)

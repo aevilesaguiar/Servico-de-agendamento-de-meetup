@@ -56,7 +56,7 @@ public class RegistrationServiceTest {
 
         // assert
         assertThat(savedRegistration.getId()).isEqualTo(101);
-        assertThat(savedRegistration.getName()).isEqualTo("Ana Neri");
+        assertThat(savedRegistration.getName()).isEqualTo("Aeviles Aguiar");
         assertThat(savedRegistration.getDateOfRegistration()).isEqualTo("01/04/2022");
         assertThat(savedRegistration.getRegistration()).isEqualTo("001");
 
